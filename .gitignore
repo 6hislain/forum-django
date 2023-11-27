@@ -1,0 +1,52 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+
+# virtual environment
+venv/
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# Testing
+*.coverage
+htmlcov/
+
+# Heroku
+*.pyc
+staticfiles/
+.env
+
+# Docker
+docker-compose.yml
+Dockerfile
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
