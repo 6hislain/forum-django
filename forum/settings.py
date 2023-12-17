@@ -26,6 +26,8 @@ SECRET_KEY = "django-insecure-p+6mob7jwe+mj$8+l%%!n+2)#vodn0%hzj$5ix8c9hps95uue7
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+USE_THOUSAND_SEPARATOR = True
+USE_L10N = True
 
 
 # Application definition
@@ -128,8 +130,8 @@ STATICFILES_DIRS = (BASE_DIR / "static",)
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-MEDIA_URL = "//"
-MEDIA_ROOT = BASE_DIR / ""
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 INTERNAL_IPS = ["127.0.0.1"]
 
