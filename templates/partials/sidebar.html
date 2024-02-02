@@ -1,0 +1,50 @@
+<h5 class="mb-3 border-bottom border-3 border-primary">
+  <span class="badge bg-primary text-uppercase rounded-bottom-0">
+    Recent posts
+  </span>
+</h5>
+<div class="row g-3 mb-3">
+  {% for a in '12345' %}
+  <div class="col-4">
+    <img
+      alt="..."
+      src="https://placehold.co/300x300.png"
+      class="img-fluid w-100 rounded my-auto"
+    />
+  </div>
+  <div class="col-8">
+    <p class="card-text mb-1">
+      With supporting text below as a natural lead-in to additional content.
+    </p>
+    <small class="text-body-secondary">December 15, 2022</small>
+  </div>
+  {% endfor %}
+</div>
+<h5 class="mb-3 border-bottom border-3 border-primary">
+  <span class="badge bg-primary text-uppercase rounded-bottom-0">
+    Popular posts
+  </span>
+</h5>
+<div class="row g-3 mb-3">
+  {% for a in '12345' %}
+  <div class="col-4">
+    <img
+      alt="..."
+      src="https://placehold.co/300x300.png"
+      class="img-fluid w-100 rounded my-auto"
+    />
+  </div>
+  <div class="col-8">
+    <p class="card-text mb-1">
+      With supporting text below as a natural lead-in to additional content.
+    </p>
+    <small class="text-body-secondary">December 15, 2022</small>
+  </div>
+  {% endfor %}
+</div>
+<div class="sticky-top sticky-card">
+  <div class="card card-body border-secondary border-3 shadow-sm mb-3">
+    <h5 class="card-title">Sticky Card</h5>
+    <div class="card-text">{% lorem 1 b random %}</div>
+  </div>
+</div>

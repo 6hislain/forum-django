@@ -1,0 +1,102 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark shadow mb-3"
+  id="navbar"
+>
+  <div class="container">
+    <a class="navbar-brand text-uppercase" href="{% url 'home' %}">Forum</a>
+    <button
+      class="navbar-toggler rounded-0 border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link {% if request.path == '/' %} active {% endif %}"
+            aria-current="page"
+            href="{% url 'home' %}"
+          >
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if '/sports' in request.path %} active {% endif %}"
+            href="{% url 'topic' 'news' %}"
+          >
+            Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if '/review' in request.path %} active {% endif %}"
+            href="{% url 'topic' 'review' %}"
+          >
+            Register
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Support
+          </a>
+          <ul class="dropdown-menu rounded-0 p-1">
+            <li>
+              <a class="dropdown-item" href="{% url 'page' 'about-us' %}">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'page' 'contact-us' %}">
+                Contact Us
+              </a>
+            </li>
+            <li><hr class="dropdown-divider my-1" /></li>
+            <li>
+              <a class="dropdown-item" href="{% url 'page' 'privacy-policy' %}">
+                Pricacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="{% url 'page' 'terms-and-conditions' %}"
+              >
+                Terms & Conditions
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <form method="post" role="search" class="input-group ms-md-2 me-2">
+          <input
+            class="form-control form-control-sm"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          {% csrf_token %}
+          <button class="btn btn-sm btn-primary" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+        <button class="btn btn-sm btn-outline-light" onclick="toggleTheme()">
+          <i class="bi bi-sun"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
