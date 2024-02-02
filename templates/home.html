@@ -1,8 +1,62 @@
 {% extends 'layouts/base.html' %} {% load static %} {% block content %}
 <div class="row justify-content-center">
-  <div class="col-md-5 text-center">
+  <div class="col-12 text-center">
     <h3 class="fw-bold">FORUM</h3>
     <p class="fs-5">Welcome to FORUM, a demo project built in Django</p>
+  </div>
+  <div class="col-md-2">
+    <h5 class="fw-bold">Topics</h5>
+    <ul class="list-group">
+      {% for topic in topics %}
+      <li class="list-group-item">{{ topic.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="col-md-8">
+    {% for question in page_object %}
+    <div class="card card-body mb-2 hover-card">
+      <h5 class="card-title">{{ question.title }}</h5>
+      <p class="card-text">{{ question.content|safe }}</p>
+    </div>
+    {% endfor %}
+    <nav aria-label="pagination">
+      <ul class="pagination justify-content-center mt-3">
+        {% if page_object.has_previous %}
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="?page={{ page_object.previous_page_number }}"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </a>
+        </li>
+        {% endif %}
+        <li class="page-item">
+          <a class="page-link" href="#">
+            {{ page_object.number }} / {{ page_object.paginator.num_pages }}
+          </a>
+        </li>
+        {% if page_object.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_object.next_page_number }}">
+            <i class="bi bi-chevron-right"></i>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-primary w-100 mb-3">
+      <i class="bi bi-plus-circle me-1"></i>
+      Post Question
+    </button>
+    <h5 class="fw-bold">Pages</h5>
+    <ul class="list-group">
+      {% for page in pages %}
+      <li class="list-group-item">{{ page.title }}</li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 {% endblock %}

@@ -1,10 +1,25 @@
-from typing import Any
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Question, Answer, Topic, Page
 
 
 # Create your views here.
+def home(request):
+    pages = Page.objects.all()
+    topics = Topic.objects.all()
+    questions = Question.objects.order_by("-id")
+    paginator = Paginator(questions, 50)
+    page_number = request.GET.get("page")
+    page_object = paginator.get_page(page_number)
+
+    return render(
+        request,
+        "home.html",
+        {"pages": pages, "topics": topics, "page_object": page_object},
+    )
+
+
 class QuestionList(ListView):
     paginate_by = 48
     queryset = Question.objects.order_by("-created_at")

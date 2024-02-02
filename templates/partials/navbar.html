@@ -54,28 +54,16 @@
           </a>
           <ul class="dropdown-menu rounded-0 p-1">
             <li>
-              <a class="dropdown-item" href="{% url 'page' 'about-us' %}">
-                About Us
-              </a>
+              <a class="dropdown-item" href="{% url 'about' %}"> About Us </a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'page' 'contact-us' %}">
+              <a class="dropdown-item" href="{% url  'contact' %}">
                 Contact Us
               </a>
             </li>
             <li><hr class="dropdown-divider my-1" /></li>
             <li>
-              <a class="dropdown-item" href="{% url 'page' 'privacy-policy' %}">
-                Pricacy Policy
-              </a>
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="{% url 'page' 'terms-and-conditions' %}"
-              >
-                Terms & Conditions
-              </a>
+              <a class="dropdown-item" href="{% url 'license' %}"> License </a>
             </li>
           </ul>
         </li>
@@ -93,9 +81,6 @@
             <i class="bi bi-search"></i>
           </button>
         </form>
-        <button class="btn btn-sm btn-outline-light" onclick="toggleTheme()">
-          <i class="bi bi-sun"></i>
-        </button>
       </div>
     </div>
   </div>
