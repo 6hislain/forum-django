@@ -1,5 +1,7 @@
 Django
 django-debug-toolbar
 django-tinymce
+dj-database-url
 gunicorn
 Pillow
+psycopg2
