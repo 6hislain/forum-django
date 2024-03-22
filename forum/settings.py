@@ -36,6 +36,7 @@ USE_L10N = True
 
 INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
+    "django_database_prefix",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -89,6 +90,7 @@ DATABASES = {
     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+DB_PREFIX = "forum_"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
