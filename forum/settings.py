@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
+import re, os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,6 +35,7 @@ USE_L10N = True
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -149,3 +151,14 @@ TINYMCE_DEFAULT_CONFIG = {
     "custom_undo_redo_levels": 10,
 }
 TINYMCE_SPELLCHECKER = True
+
+
+# Vite generates files with 8 hash digits
+# http://whitenoise.evans.io/en/stable/django.html#WHITENOISE_IMMUTABLE_FILE_TEST
+def immutable_file_test(path, url):
+    # Match filename with 12 hex digits before the extension
+    # e.g. app.db8f2edc0c8a.js
+    return re.match(r"^.+\.[0-9a-f]{8,12}\..+$", url)
+
+
+WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test

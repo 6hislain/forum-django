@@ -4,3 +4,4 @@ dj-database-url
 gunicorn
 Pillow
 psycopg2
+whitenoise
