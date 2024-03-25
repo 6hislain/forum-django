@@ -26,22 +26,30 @@
             Home
           </a>
         </li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+        </li>
+        {% else %}
         <li class="nav-item">
           <a
-            class="nav-link {% if '/sports' in request.path %} active {% endif %}"
-            href="{% url 'topic' 'news' %}"
+            class="nav-link {% if 'login' in request.path %} active {% endif %}"
+            href="{% url 'login' %}"
           >
             Login
           </a>
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {% if '/review' in request.path %} active {% endif %}"
-            href="{% url 'topic' 'review' %}"
+            class="nav-link {% if 'register' in request.path %} active {% endif %}"
+            href="{% url 'register' %}"
           >
             Register
           </a>
         </li>
+        {% endif %}
+
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
