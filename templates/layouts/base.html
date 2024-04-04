@@ -13,10 +13,12 @@
     {% block styles %}{% endblock %}
   </head>
   <body>
-    {% include 'partials/navbar.html' %}
-    <main class="container my-4">{% block content %}{% endblock %}</main>
-    {% block scripts %}{% endblock %}
+    <main class="d-flex flex-column justify-content-between min-vh-100">
+      {% include 'partials/navbar.html' %}
+      <div class="container">{% block content %}{% endblock %}</div>
+      {% include 'partials/footer.html' %}
+    </main>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
+    {% block scripts %}{% endblock %}
   </body>
 </html>
