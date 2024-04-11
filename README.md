@@ -24,8 +24,9 @@ The Django Forum Demo Project is a robust and user-friendly web application that
 ## TODO
 
 - [ ] pages
- - [ ] home page
- - [ ] question detail
- - [ ] question list
- - [ ] topic detail
- - [ ] page detail
+- [ ] home page
+- [ ] question detail
+- [ ] question list
+- [ ] topic detail
+- [ ] page detail
+- inspiration: godev.com
