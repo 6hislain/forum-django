@@ -25,7 +25,7 @@ admin.site.site_title = "Forum"
 admin.site.site_header = "Forum"
 
 urlpatterns = [
-    path("", include("core.urls")),
+    path("", include("main.urls")),
     path("admin/", admin.site.urls),
     path("tinymce/", include("tinymce.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
